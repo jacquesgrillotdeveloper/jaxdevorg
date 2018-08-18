@@ -1,0 +1,15 @@
+<apex:page standardController="Sftrn_Module__c" recordSetVar="Modules" >
+    <apex:pageBlock title="ICMA-RC Salesforce Support Home"  >
+        <apex:panelGrid >
+            <apex:repeat value="{!Modules}" var="module" >
+                <tr>
+                    <td><a href="{!$Page.SftrnDetail}?id={!module.Id}">
+                        <apex:image value="{!module.Icon_Path__c}" height="100" width="100" />  
+                        <apex:outputText style="font-size: 20px" value=" {!module.Name}" />
+                        </a></td>
+                </tr>
+            </apex:repeat>
+        </apex:panelGrid>
+    </apex:pageBlock> 
+
+</apex:page>

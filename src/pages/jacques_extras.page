@@ -1,0 +1,85 @@
+<apex:page showHeader="false" docType="html-5.0" >  
+<vs:importvisualstrap theme="paper"/>  
+<!--<style>  
+    body{  
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+    }  
+    .intro{  
+        margin-top:20px;  
+        font-size:140%;  
+        font-weight: 200;  
+        }  
+</style>-->  
+
+<vs:visualstrapblock >  
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display--> 
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jacques</a>
+
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{!$Page.jacques_home}">Home</a></li>
+            <li><a href="{!$Page.jacques_achievements}">Achievements</a></li>
+            <li class="active"><a href="#">Extras<span class="sr-only">(current)</span></a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+   
+      <vs:panel title="Extras" type="primary">      
+    <apex:outputPanel layout="block" styleClass="container" >  
+        <apex:outputPanel layout="block" styleClass="row">  
+            <apex:outputPanel layout="block" styleClass="col-md-4">  
+                <apex:outputPanel layout="block" styleClass="well">  
+                    <h3>   
+                        <vs:glyph icon="bookmark"/> Social Accounts
+                    </h3>  
+                    <div class="intro" >
+                                    <BR/>
+                                    <a href="https://www.linkedin.com/in/jacquesgrillot">My LinkedIn Profile</a>
+                                    <BR/>
+                                    <BR/>
+                                    <a href="https://twitter.com/JacquesGrillot">My Twitter Handle</a>
+                    </div>  
+                </apex:outputPanel>  
+            </apex:outputPanel>  
+            <apex:outputPanel layout="block" styleClass="col-md-4">  
+                <apex:outputPanel layout="block" styleClass="well">  
+                    <h3>   
+                        <vs:glyph icon="book"/> Resources
+                    </h3>  
+                    <div class="intro" >
+                        <BR/>
+                        <a href="https://developer.salesforce.com/trailhead">Salesforce Trailhead</a>
+                        <BR/>
+                        <BR/>
+                        <a href="https://developer.salesforce.com">Force.com Developer Site</a>  
+                    </div>  
+                </apex:outputPanel>  
+            </apex:outputPanel>  
+        </apex:outputPanel>  
+    </apex:outputPanel>  
+                     
+            <!-- footer -->  
+            <vs:navbar brand="Force9" type="fixed-bottom" layout="none">  
+                <center>  
+                    <apex:outputPanel styleClass="text-muted" style="margin:20px;font-size:130%" layout="block">  
+                        <vs:glyph icon="bullhorn"/> Site powered by Force.com  
+                    </apex:outputPanel>  
+                </center>  
+            </vs:navbar> 
+</vs:panel>
+</vs:visualstrapblock>  
+</apex:page>

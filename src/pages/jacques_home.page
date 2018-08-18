@@ -1,0 +1,86 @@
+<apex:page showHeader="false" docType="html-5.0" >  
+<vs:importvisualstrap theme="paper"/>  
+<!--<style>  
+    body{  
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+    }  
+    .intro{  
+        margin-top:20px;  
+        font-size:140%;  
+        font-weight: 200;  
+        }  
+</style>-->  
+
+<vs:visualstrapblock >
+
+<nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display--> 
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jacques</a>
+
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home<span class="sr-only">(current)</span></a></li>
+            <li><a href="{!$Page.jacques_achievements}">Achievements<span class="sr-only">(current)</span></a></li>
+            <li><a href="{!$Page.jacques_extras}">Extras</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+           
+  
+    <vs:panel title="About Me" type="primary">
+        <apex:form >  
+        <!--header -->  
+            <!--<vs:navbar brand="Jacques" type="fixed-top">
+            <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Link</a></li>
+       
+                <a href="#" target="_blank" class="btn btn-primary btn-danger"><vs:glyph icon="home"/> Home</a>
+                <!--<vs:navbar brand="Jacques" inverse="true" type="fixed-top">  
+                A grillot.me site  
+            </ul>       
+            </vs:navbar>-->
+            
+              
+            <apex:outputPanel layout="block" styleClass="well">
+                <vs:row >
+                    <vs:column type="col-md-3">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-avatar slds-avatar--large">
+                                    <img src="{!$Resource.jacques_prof}" alt="" width="200" />
+                                </span>
+                            </div>
+                        </div>
+                    </vs:column>
+                    <vs:column type="col-md-7">
+                        <p>I have recently achieved the Salesforce Certified Advanced Administrator certification. I currently work as a Salesforce Systems Analyst at the International City Managers Association Retirement Corporation. In my free time I enjoy playing a multitude of video games, playing guitar, and spending time with my Wife and Lakeland Terrier Bueller. I am a huge Chicago Sports fan even though I reside just outside Washington, D.C. I have recently discovered a new passion in Sailing and have quickly learned that it is way more enjoyable when it's someone else's boat</p>
+                    </vs:column>
+                </vs:row>
+            </apex:outputPanel>
+             
+            <!-- footer -->  
+            <vs:navbar brand="Grillot.me" type="fixed-bottom" layout="none">  
+                <center>  
+                    <apex:outputPanel styleClass="text-muted" style="margin:20px;font-size:130%" layout="block">  
+                        <vs:glyph icon="bullhorn"/> Site powered by Force.com  
+                    </apex:outputPanel>  
+                </center>  
+            </vs:navbar>  
+         
+        </apex:form>  
+    </vs:panel>
+</vs:visualstrapblock>  
+</apex:page>

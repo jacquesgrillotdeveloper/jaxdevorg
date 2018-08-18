@@ -1,0 +1,18 @@
+<!-- Custom Module record edit page to allow for attachments -->
+<apex:page standardController="Sftrn_Module__c" extensions="SftrnModuleControllerExtension">
+    <apex:form >
+        <apex:pageBlock title="Edit Module">
+            <!-- Single column block to capture name and attach file -->
+            <apex:pageBlockSection columns="1">
+                <apex:inputField value="{!Sftrn_Module__c.Name}"/>
+                <apex:inputFile value="{!icon}" accept="image/*" />
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <!-- Record Save button -->
+                <apex:commandButton action="{!save}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+        <!--Return any system exception messages-->
+        {!errorMessage}
+    </apex:form>
+</apex:page>

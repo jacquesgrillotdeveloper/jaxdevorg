@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <choices>
+        <name>OppStage</name>
+        <choiceText>OppStage</choiceText>
+        <dataType>String</dataType>
+    </choices>
+    <dynamicChoiceSets>
+        <name>OppStag</name>
+        <dataType>Picklist</dataType>
+        <displayField xsi:nil="true"/>
+        <object xsi:nil="true"/>
+        <picklistField>StageName</picklistField>
+        <picklistObject>Opportunity</picklistObject>
+    </dynamicChoiceSets>
+    <formulas>
+        <name>OpportunityNameFormula</name>
+        <dataType>String</dataType>
+        <expression>{!Company_Name}&amp;&quot;-&quot;&amp;{!Last_Name}</expression>
+    </formulas>
+    <interviewLabel>New Customer Flow {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>New Customer Flow</label>
+    <processType>Flow</processType>
+    <recordCreates>
+        <name>Contact_Create</name>
+        <label>Contact Create</label>
+        <locationX>274</locationX>
+        <locationY>324</locationY>
+        <connector>
+            <targetReference>Opportunity_Create</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>FirstName</field>
+            <value>
+                <elementReference>First_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>LastName</field>
+            <value>
+                <elementReference>Last_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Contact</object>
+    </recordCreates>
+    <recordCreates>
+        <name>New_Account</name>
+        <label>New Account</label>
+        <locationX>281</locationX>
+        <locationY>204</locationY>
+        <connector>
+            <targetReference>Contact_Create</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>Company_Name</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Account</object>
+    </recordCreates>
+    <recordCreates>
+        <name>Opportunity_Create</name>
+        <label>Opportunity Create</label>
+        <locationX>281</locationX>
+        <locationY>416</locationY>
+        <connector>
+            <targetReference>Account_Created</targetReference>
+        </connector>
+        <inputAssignments>
+            <field>Amount</field>
+            <value>
+                <elementReference>Opportunity_Amount</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>CloseDate</field>
+            <value>
+                <dateValue>2016-01-22</dateValue>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>Name</field>
+            <value>
+                <elementReference>OpportunityNameFormula</elementReference>
+            </value>
+        </inputAssignments>
+        <inputAssignments>
+            <field>StageName</field>
+            <value>
+                <elementReference>Opportunity_Stage</elementReference>
+            </value>
+        </inputAssignments>
+        <object>Opportunity</object>
+    </recordCreates>
+    <screens>
+        <name>Account_Created</name>
+        <label>Account Created</label>
+        <locationX>288</locationX>
+        <locationY>505</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>Finished</name>
+            <fieldText>Your Account &quot;{!Company_Name}&quot;, Contact &quot;{!First_Name} {!Last_Name}&quot; and related opportunity has been created.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+    </screens>
+    <screens>
+        <name>Customer_Info</name>
+        <label>Customer Info</label>
+        <locationX>270</locationX>
+        <locationY>103</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>New_Account</targetReference>
+        </connector>
+        <fields>
+            <name>StartScreen</name>
+            <fieldText>Welcome to the quick create screen. Please enter in the required fields highlighted in red to create an Account, Contact, and Opportunity.</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <fields>
+            <name>First_Name</name>
+            <dataType>String</dataType>
+            <fieldText>First Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Last_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Last Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Company_Name</name>
+            <dataType>String</dataType>
+            <fieldText>Company Name</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>true</isRequired>
+        </fields>
+        <fields>
+            <name>Opportunity_Amount</name>
+            <dataType>Currency</dataType>
+            <fieldText>Opportunity Amount</fieldText>
+            <fieldType>InputField</fieldType>
+            <isRequired>false</isRequired>
+            <scale>0</scale>
+        </fields>
+        <fields>
+            <name>Opportunity_Stage</name>
+            <choiceReferences>OppStag</choiceReferences>
+            <dataType>String</dataType>
+            <fieldText>Opportunity Stage</fieldText>
+            <fieldType>DropdownBox</fieldType>
+            <isRequired>false</isRequired>
+        </fields>
+    </screens>
+    <startElementReference>Customer_Info</startElementReference>
+</Flow>

@@ -1,0 +1,47 @@
+<apex:page standardController="Resume__c" showHeader="false" sidebar="false" extensions="ResumeControllerExtension">
+    
+    <apex:pageBlock title="Resume" >
+        
+        <H1>
+            {!Resume__c.Contact__r.Name}
+        </H1>
+        <BR/>
+        {!Resume__c.Contact__r.MailingCity}, {!Resume__c.Contact__r.MailingState}
+        <BR/>
+        <apex:pageBlockSection >
+            <apex:outputField value="{!Resume__c.Contact__r.Email}" />
+            <BR/>
+            <apex:outputLink target="_blank" value="{!Resume__c.Contact__r.LinkedIn_URL__c}">{!Resume__c.Contact__r.Name}'s LinkedIn Page</apex:outputLink>
+            <apex:outputLink target="_blank" value="{!Resume__c.Contact__r.Trailhead_URL__c}">{!Resume__c.Contact__r.Name}'s Trailhead Page</apex:outputLink>
+        </apex:pageBlockSection>
+        <apex:pageBlockSection >
+            <apex:outputText value="{!Resume__c.Synopsis__c}" escape="false" />
+        </apex:pageBlockSection>
+        
+        <!-- Commenting our this section, APEX REPEAT not a good use here
+<apex:pageBlockSection title="Educational Experience" >
+<apex:repeat value="{!EducationExperience}" var="Ed" >
+<apex:outputText value="{!Ed.Experience__r.Name}" />
+</apex:repeat>
+</apex:pageBlockSection>-->
+        
+        
+        <apex:pageBlockSection title="Professional Experience" >
+            <apex:pageBlockTable value="{!ProfessionalExperience}" var="prof" >
+                <apex:column value="{!prof.Experience__r.Name}" />
+                <apex:column value="{!prof.Experience__r.End__c}" />
+                
+            </apex:pageBlockTable> 
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="Educational Experience" >
+            <apex:pageBlockTable value="{!EducationExperience}" var="ed" >
+                <apex:column value="{!ed.Experience__r.Name}" />
+                <apex:column value="{!ed.Experience__r.End__c}" />
+                
+            </apex:pageBlockTable> 
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+    <p>This site is built with Visualforce and Force.com</p>
+</apex:page>

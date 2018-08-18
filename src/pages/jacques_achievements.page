@@ -1,0 +1,90 @@
+<apex:page showHeader="false" docType="html-5.0" >  
+<vs:importvisualstrap theme="paper"/>  
+<!--<style>  
+    body{  
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;  
+    }  
+    .intro{  
+        margin-top:20px;  
+        font-size:140%;  
+        font-weight: 200;  
+        }  
+</style>-->  
+
+<vs:visualstrapblock >  
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display--> 
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Jacques</a>
+
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{!$Page.jacques_home}">Home</a></li>
+            <li class="active"><a href="#">Achievements<span class="sr-only">(current)</span></a></li>
+            <li><a href="{!$Page.jacques_extras}">Extras</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+           
+           
+
+    <vs:panel title="Achievements" type="primary">
+        <apex:form >  
+        <!--header -->  
+            
+            
+            <vs:row >
+            
+                <vs:column type="col-md-4">
+                    <center>
+                    <vs:thumbnail >
+                        <apex:image value="{!$Resource.Logo_Cert_Adv_Admin}" width="300"/>
+                        <vs:thumbnailcaption >
+                            <h4>Salesforce Certified Advanced Administrator</h4>
+                            <br/>
+                            <p>Achieved on October 15, 2015.</p>
+                        </vs:thumbnailcaption>
+                    </vs:thumbnail>
+                    </center>
+                </vs:column>
+                
+                <vs:column type="col-md-4">
+                    <center>
+                    <vs:thumbnail >
+                        <apex:image value="{!$Resource.Logo_Cert_Admin}" width="300"/>
+                        <vs:thumbnailcaption >
+                            <h4>Salesforce Certified Administrator</h4>
+                            <br/>
+                            <p>Acheived on July 2, 2015.</p>
+                        </vs:thumbnailcaption>
+                    </vs:thumbnail>
+                    </center>
+                </vs:column>
+                
+            </vs:row>
+             
+            <!-- footer -->  
+            <vs:navbar brand="Force9" type="fixed-bottom" layout="none">  
+                <center>  
+                    <apex:outputPanel styleClass="text-muted" style="margin:20px;font-size:130%" layout="block">  
+                        <vs:glyph icon="bullhorn"/> Site powered by Force.com  
+                    </apex:outputPanel>  
+                </center>  
+            </vs:navbar>  
+         
+        </apex:form>  
+    </vs:panel>
+</vs:visualstrapblock>  
+</apex:page>

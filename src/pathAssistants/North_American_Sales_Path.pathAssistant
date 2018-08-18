@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Opportunity</entityName>
+    <fieldName>StageName</fieldName>
+    <masterLabel>North American Sales Path</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Amount</fieldNames>
+        <fieldNames>ExpectedRevenue</fieldNames>
+        <fieldNames>Probability</fieldNames>
+        <info>Spend at least two hours a day prospecting!&lt;br&gt;&lt;br&gt;Don&amp;#39;t forget to check the Account and Opportunity to update regularly.</info>
+        <picklistValueName>Prospecting</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

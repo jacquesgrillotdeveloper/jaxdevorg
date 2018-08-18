@@ -1,0 +1,32 @@
+<apex:page standardController="Account" recordSetVar="accounts" >
+    <!--
+The page must be named 'AccountList'.
+It must reference the Account standard controller.
+It must have a recordSetVar equal to 'accounts'.
+It must have a Visualforce apex:repeat component.
+The repeater must have the var attribute set to 'a'.
+The repeater must use the <li> HTML list tag
+The repeater must use the apex:outputLink component to link to the respective record detail page
+HINT: Record detail pages can be reached by placing a record ID at the root of the URL (e.g. '/<record id>').	
+
+<apex:form >
+<apex:pageBlock title="Accounts List" id="accounts_list" >
+
+<!-- Account List ->
+<apex:pageBlockTable value="{! accounts}" var="a" >
+<apex:column value="{! a.Name}" />
+<apex:column value="{! a.Industry}" />
+</apex:pageBlockTable>
+</apex:pageBlock>
+</apex:form>-->
+    
+    <apex:pageBlock >
+        <apex:repeat var="a" value="{! accounts}" >
+            <li>
+                <apex:outputLink value="/{! a.id}">
+                    {! a.Name}
+                </apex:outputLink>
+            </li>
+        </apex:repeat>
+    </apex:pageBlock>
+</apex:page>
